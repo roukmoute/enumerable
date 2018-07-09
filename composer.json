@@ -1,0 +1,34 @@
+{
+    "name": "roukmoute/enumerable",
+    "description": "Provides a set of methods for querying objects.",
+    "type": "library",
+    "require": {
+        "php": ">=7.1"
+    },
+    "require-dev": {
+        "bossa/phpspec2-expect": "^3.0"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Mathias STRASSER",
+            "email": "contact@roukmoute.fr"
+        }
+    ],
+    "minimum-stability": "stable",
+    "autoload": {
+        "psr-4" : {
+            "Enumerable\\" : "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4" : {
+            "Enumerable\\" : "spec/"
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0-dev"
+        }
+    }
+}
