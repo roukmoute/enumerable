@@ -1,0 +1,4 @@
+suites:
+    enumerable:
+        namespace: Enumerable
+        psr4_prefix: Enumerable
