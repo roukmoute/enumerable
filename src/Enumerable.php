@@ -2,6 +2,7 @@
 
 namespace Enumerable;
 
+use Enumerable\Iterator\Concat;
 use Enumerable\Iterator\Filter;
 
 class Enumerable implements \Iterator
@@ -21,6 +22,11 @@ class Enumerable implements \Iterator
     public function filter(callable $predicate): self
     {
         return (new Filter())($this->source, $predicate);
+    }
+
+    public function concat(array $sequence): self
+    {
+        return (new Concat())($this->source, $sequence);
     }
 
     public function current()

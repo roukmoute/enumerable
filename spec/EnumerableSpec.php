@@ -55,4 +55,17 @@ class EnumerableSpec extends ObjectBehavior
             expect($item)->toBe($expect[$key]);
         }
     }
+
+    function it_concatenates_two_sequences()
+    {
+        $this->beConstructedWith([1]);
+
+        $query = $this->getWrappedObject()->concat([2]);
+
+        $expect = [1, 2];
+        $key = 0;
+        foreach ($query as $item) {
+            expect($item)->toBe($expect[$key++]);
+        }
+    }
 }

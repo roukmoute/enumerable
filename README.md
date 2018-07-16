@@ -43,3 +43,43 @@ foreach ($query as $number) {
  40
 */
 ```
+
+### concat
+
+![](https://martinfowler.com/articles/collection-pipeline/collection-pipeline/concat.png)
+
+Concatenates collections into a single collection
+
+```php
+$query = (new \Enumerable\Enumerable([1, 2, 3]))->concat([4, 5]);
+
+foreach ($query as $name) {
+    echo $name . PHP_EOL;
+}
+
+// This code produces the following output:
+//
+// 1
+// 2
+// 3
+// 4
+// 5
+```
+
+If you want to concatenate more than two collections :
+```php
+$query = (new \Enumerable\Enumerable([1, 2, 3]))->concat([4, 5])->concat([6]);
+
+foreach ($query as $name) {
+    echo $name . PHP_EOL;
+}
+
+// This code produces the following output:
+//
+// 1
+// 2
+// 3
+// 4
+// 5
+// 6
+```
