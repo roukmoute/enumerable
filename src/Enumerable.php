@@ -2,6 +2,8 @@
 
 namespace Enumerable;
 
+use Enumerable\Iterator\Filter;
+
 class Enumerable implements \Iterator
 {
     /** @var iterable */
@@ -14,6 +16,11 @@ class Enumerable implements \Iterator
         }
 
         $this->source = $source;
+    }
+
+    public function filter(callable $predicate): self
+    {
+        return (new Filter())($this->source, $predicate);
     }
 
     public function current()

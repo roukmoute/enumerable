@@ -36,4 +36,23 @@ class EnumerableSpec extends ObjectBehavior
 
         $this->shouldNotThrow(\Exception::class)->duringInstantiation();
     }
+
+    function it_filters_a_sequence_of_values_based_on_a_predicate()
+    {
+        $numbers = [0, 30, 20, 15, 90, 85, 40, 75];
+
+        $this->beConstructedWith($numbers);
+
+        $query = $this->getWrappedObject()->filter(
+            function (int $number, int $index) {
+                return $number <= $index * 10;
+            }
+        )
+        ;
+
+        $expect = [0, 20, 15, 40];
+        foreach ($query as $key => $item) {
+            expect($item)->toBe($expect[$key]);
+        }
+    }
 }
