@@ -4,6 +4,7 @@ namespace Enumerable;
 
 use Enumerable\Iterator\Concat;
 use Enumerable\Iterator\Difference;
+use Enumerable\Iterator\Distinct;
 use Enumerable\Iterator\Filter;
 
 class Enumerable implements \Iterator
@@ -33,6 +34,11 @@ class Enumerable implements \Iterator
     public function difference(array $sequence): self
     {
         return (new Difference())($this->source, $sequence);
+    }
+
+    public function distinct(): self
+    {
+        return (new Distinct())($this->source);
     }
 
     public function current()

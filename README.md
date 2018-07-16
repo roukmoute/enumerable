@@ -103,3 +103,25 @@ foreach ($query as $number) {
 // 2
 // 4
 ```
+
+### distinct
+
+![](https://martinfowler.com/articles/collection-pipeline/collection-pipeline/distinct.png)
+
+Removes duplicate elements
+
+Returns a new list with any duplicates removed.
+
+```php
+$query = (new \Enumerable\Enumerable([1, 2, 3, 2, 1]))->distinct();
+
+foreach ($query as $number) {
+    echo $number . PHP_EOL;
+}
+
+// This code produces the following output:
+//
+// 1
+// 2
+// 3
+```

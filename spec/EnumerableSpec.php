@@ -80,4 +80,16 @@ class EnumerableSpec extends ObjectBehavior
             expect($item)->toBe($expect[$key]);
         }
     }
+
+    function it_returns_distinct_elements_from_a_sequence()
+    {
+        $this->beConstructedWith([21, 46, 46, 55, 17, 21, 55, 55]);
+
+        $query = $this->getWrappedObject()->distinct();
+
+        $expect = [21, 46, 55, 17];
+        foreach ($query as $key => $item) {
+            expect($item)->toBe($expect[$key]);
+        }
+    }
 }
