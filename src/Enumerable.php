@@ -3,6 +3,7 @@
 namespace Enumerable;
 
 use Enumerable\Iterator\Concat;
+use Enumerable\Iterator\Difference;
 use Enumerable\Iterator\Filter;
 
 class Enumerable implements \Iterator
@@ -27,6 +28,11 @@ class Enumerable implements \Iterator
     public function concat(array $sequence): self
     {
         return (new Concat())($this->source, $sequence);
+    }
+
+    public function difference(array $sequence): self
+    {
+        return (new Difference())($this->source, $sequence);
     }
 
     public function current()

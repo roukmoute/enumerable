@@ -68,4 +68,16 @@ class EnumerableSpec extends ObjectBehavior
             expect($item)->toBe($expect[$key++]);
         }
     }
+
+    function it_removes_the_contents_of_the_supplied_list_from_the_pipeline()
+    {
+        $this->beConstructedWith([1, 1, 2, 2, 3, 4]);
+
+        $query = $this->getWrappedObject()->difference([1, 3]);
+
+        $expect = [2, 2, 4];
+        foreach ($query as $key => $item) {
+            expect($item)->toBe($expect[$key]);
+        }
+    }
 }

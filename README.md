@@ -83,3 +83,23 @@ foreach ($query as $name) {
 // 5
 // 6
 ```
+
+### difference
+
+![](https://martinfowler.com/articles/collection-pipeline/collection-pipeline/difference.png)
+
+Remove the contents of the supplied list from the pipeline
+
+```php
+$query = (new \Enumerable\Enumerable([1, 1, 2, 2, 3, 4]))->difference([1, 3]);
+
+foreach ($query as $number) {
+    echo $number . PHP_EOL;
+}
+
+// This code produces the following output:
+//
+// 2
+// 2
+// 4
+```
