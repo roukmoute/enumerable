@@ -125,3 +125,27 @@ foreach ($query as $number) {
 // 2
 // 3
 ```
+
+### slice
+
+![](https://martinfowler.com/articles/collection-pipeline/collection-pipeline/slice.png)
+
+Return a sub-sequence of the list between the given first and last positions.
+
+If you want some of the list, you can take a slice of the list.
+
+```php
+$query = (new \Enumerable\Enumerable([1, 2, 3, 4, 5, 6]))->slice(2, 4);
+
+foreach ($query as $number) {
+    echo $number . PHP_EOL;
+}
+
+/**
+ * This code produces the following output:
+ * 
+ * 3
+ * 4
+ * 5
+ */
+```

@@ -92,4 +92,28 @@ class EnumerableSpec extends ObjectBehavior
             expect($item)->toBe($expect[$key]);
         }
     }
+
+    function it_returns_a_sub_sequence_of_the_list_between_the_given_first_and_last_positions()
+    {
+        $this->beConstructedWith([1, 2, 3, 4, 5, 6]);
+
+        $query = $this->getWrappedObject()->slice(2, 4);
+
+        $expect = [3, 4, 5];
+        foreach ($query as $key => $item) {
+            expect($item)->toBe($expect[$key]);
+        }
+    }
+
+    function it_returns_a_sub_sequence_of_the_list_between_the_given_first_without_last_positions()
+    {
+        $this->beConstructedWith([1, 2, 3, 4, 5, 6]);
+
+        $query = $this->getWrappedObject()->slice(2);
+
+        $expect = [3, 4, 5, 6];
+        foreach ($query as $key => $item) {
+            expect($item)->toBe($expect[$key]);
+        }
+    }
 }

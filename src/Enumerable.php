@@ -6,6 +6,7 @@ use Enumerable\Iterator\Concat;
 use Enumerable\Iterator\Difference;
 use Enumerable\Iterator\Distinct;
 use Enumerable\Iterator\Filter;
+use Enumerable\Iterator\Slice;
 
 class Enumerable implements \Iterator
 {
@@ -39,6 +40,11 @@ class Enumerable implements \Iterator
     public function distinct(): self
     {
         return (new Distinct())($this->source);
+    }
+
+    public function slice(int $from, int $to = -1): self
+    {
+        return (new Slice())($this->source, $from, $to);
     }
 
     public function current()
